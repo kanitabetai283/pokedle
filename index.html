@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#111827">
+  <title>ポケモンワードル</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div>
+        <h1>ポケモンワードル</h1>
+        <p id="subtitle">ポケモンの名前を当てよう</p>
+      </div>
+      <button id="statsBtn" class="icon-btn" aria-label="戦績">📊</button>
+    </header>
+
+    <nav class="tabs" aria-label="モード">
+      <button class="tab active" data-mode="daily">今日の問題</button>
+      <button class="tab" data-mode="endless">エンドレス</button>
+    </nav>
+
+    <section id="settings" class="settings hidden">
+      <label>出題範囲
+        <select id="genFrom"></select>
+        <span>～</span>
+        <select id="genTo"></select>
+        <span>世代</span>
+      </label>
+      <button id="newGameBtn" class="secondary">新しい問題</button>
+    </section>
+
+    <section class="status-row">
+      <div id="gameStatus">データを読み込んでいます…</div>
+      <div id="attemptStatus">0 / 10</div>
+    </section>
+
+    <section id="board" class="board" aria-label="回答履歴"></section>
+
+    <section class="input-area">
+      <div class="input-row">
+        <input id="guessInput" type="text" inputmode="kana" autocomplete="off"
+               autocapitalize="none" spellcheck="false" maxlength="5"
+               placeholder="ポケモン名を入力">
+        <button id="guessBtn" class="primary">判定</button>
+        <button id="surrenderBtn" class="surrender-btn" aria-label="降参" title="降参">🏳️</button>
+      </div>
+      <div id="message" class="message" role="status"></div>
+    </section>
+
+    <section class="kana-section">
+      <div class="section-title-row">
+        <h2>文字盤</h2>
+        <div class="legend">
+          <span><i class="key unused"></i>未使用</span>
+          <span><i class="key absent"></i>なし</span>
+          <span><i class="key present"></i>含む</span>
+          <span><i class="key correct"></i>確定</span>
+        </div>
+      </div>
+      <div id="kanaNormal" class="kana-grid"></div>
+      <details class="extended">
+        <summary>拡張文字盤（濁音・半濁音・小文字・ヴ・2・Zなど）</summary>
+        <div id="kanaExtended" class="kana-grid"></div>
+      </details>
+    </section>
+
+    <section id="result" class="result hidden">
+      <div id="resultTitle"></div>
+      <div id="resultAnswer"></div>
+      <button id="resultNext" class="primary"></button>
+    </section>
+
+    <footer>
+      <small>個人利用向け。進行状況・戦績はこのブラウザのLocalStorageに保存されます。</small>
+    </footer>
+  </main>
+
+  <dialog id="statsDialog">
+    <div class="dialog-head">
+      <h2>戦績</h2><button id="closeStats" class="icon-btn">✕</button>
+    </div>
+    <div id="statsContent"></div>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
