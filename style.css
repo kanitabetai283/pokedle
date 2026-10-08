@@ -54,7 +54,7 @@ h2 { font-size:17px; margin:10px 0; }
 .key.correct { background:var(--green); border-color:var(--green); }
 .kana-grid { display:grid; grid-template-columns:repeat(10, minmax(0, 1fr)); grid-template-rows:repeat(5, 40px); grid-auto-flow:row; gap:4px; }
 .kana-key { min-height:40px; border:1px solid var(--line); border-radius:6px; background:#fff; display:flex; align-items:center; justify-content:center;
-  font-weight:700; font-size:14px; user-select:none; }
+  font-family: inherit; font-weight:700; font-size:14px; user-select:none; }
 .kana-key.empty { visibility:hidden; pointer-events:none; background:transparent; border-color:transparent; }
 .kana-key.absent { background:var(--gray); color:#fff; border-color:var(--gray); }
 .kana-key.present { background:var(--yellow); color:#fff; border-color:var(--yellow); }
